@@ -1,0 +1,13 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Index";
+}
+@if(User.Identity.IsAuthenticated)
+{
+    <h1>Welcome User @(User.Identity.IsAuthenticated? HttpContext.Current.User.Identity.Name:"Guest")</h1>
+    var name = HttpContext.Current.User.Identity.Name;
+    <h1>Your Id is @name</h1>
+    <a href="@Url.Action("Signout","Login")">Logout</a>
+}
+
+
